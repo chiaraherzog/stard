@@ -36,21 +36,8 @@ library(stard)
 ```
 
 ``` r
-library(dplyr)
-```
+suppressPackageStartupMessages(library(dplyr)) # dplyr for data wrangling
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 # Load data
 mldat <- stard::mldat
 
@@ -108,12 +95,11 @@ head(data)
 ``` r
 out <- stard_plot(data = data,
                   order = c(id ="Population",
-                            excluded = "Eligible participants",
+                            excluded = "Excluded",
                             excltext  = "Eligible participants",
-                            insufficient = "Included participants",
+                            insufficient = "Insufficient material",
                             qEC = "WID-qEC",
-                            histology_available = 'No histology',
-                            id = 'number',
+                            histology_available = 'Reference test',
                             type = "Assigned type"),
                   side_box = c("excluded",
                                "insufficient"),
@@ -125,7 +111,8 @@ out <- stard_plot(data = data,
                              "3" = 'Index Test',
                              "4" = "Index test outcome",
                              "5" = "Reference allocation"),
-                  cex = 0.8)
+                  cex = 0.7,
+                  text_width = 25)
 
 
 plot(out)
@@ -138,12 +125,11 @@ We can also modulate label colours, font, and text width:
 ``` r
 out <- stard_plot(data = data,
                   order = c(id ="Population",
-                            excluded = "Eligible participants",
+                            excluded = "Excluded",
                             excltext  = "Eligible participants",
-                            insufficient = "Included participants",
+                            insufficient = "Insufficient material",
                             qEC = "WID-qEC",
-                            histology_available = 'No histology',
-                            id = 'number',
+                            histology_available = 'Reference test',
                             type = "Assigned type"),
                   side_box = c("excluded",
                                "insufficient"),
@@ -155,10 +141,10 @@ out <- stard_plot(data = data,
                              "3" = 'Index Test',
                              "4" = "Index test outcome",
                              "5" = "Reference allocation"),
-                  cex = 0.8,
+                  cex = 0.7,
                   fontfam = 'Guardian Sans',
-                  col = 'white',
-                  fill = 'black',
+                  col = 'black',
+                  fill = 'pink3',
                   text_width = 40)
 
 plot(out)
@@ -195,7 +181,7 @@ helpful for additional information where subsetting is not desired.
 As in the `consort` diagram, a `Graphviz` plot can be produced by
 setting `grViz = TRUE` in `plot`. This will use `DiagrammeR` to print
 the plot and is ideal for Shiny or HTML output. However, this might not
-necessarily work with custom formatting yet.
+necessarily work with custom formatting yet (e.g., font size or colour).
 
 ``` r
 plot(out, grViz = TRUE)
