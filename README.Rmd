@@ -5,7 +5,10 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
-
+knitr::opts_chunk$set(
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
 ```
 
 # stard
@@ -103,7 +106,7 @@ We can also modulate label colours, font, and text width:
 
 
 ```{r diagram.relabel, fig.width  = 10, fig.height = 7}
-out <- stard_plot(data = data,
+out2 <- stard_plot(data = data,
                   order = c(id ="Population",
                             excluded = "Excluded",
                             excltext  = "Eligible participants",
@@ -127,12 +130,12 @@ out <- stard_plot(data = data,
                   fill = 'pink3',
                   text_width = 40)
 
-plot(out)
+plot(out2)
 ```
 
 The plot can be saved as follows:
 
-```{r}
+```{r, eval = F}
 png("stard_diagram.png", width = 29, 
     height = 21, res = 300, units = "cm", type = "cairo") 
 plot(out)

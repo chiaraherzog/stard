@@ -118,12 +118,12 @@ out <- stard_plot(data = data,
 plot(out)
 ```
 
-![](README_files/figure-gfm/diagram-1.png)<!-- -->
+<img src="man/figures/README-diagram-1.png" width="100%" />
 
 We can also modulate label colours, font, and text width:
 
 ``` r
-out <- stard_plot(data = data,
+out2 <- stard_plot(data = data,
                   order = c(id ="Population",
                             excluded = "Excluded",
                             excltext  = "Eligible participants",
@@ -147,10 +147,10 @@ out <- stard_plot(data = data,
                   fill = 'pink3',
                   text_width = 40)
 
-plot(out)
+plot(out2)
 ```
 
-![](README_files/figure-gfm/diagram.relabel-1.png)<!-- -->
+<img src="man/figures/README-diagram.relabel-1.png" width="100%" />
 
 The plot can be saved as follows:
 
@@ -159,12 +159,7 @@ png("stard_diagram.png", width = 29,
     height = 21, res = 300, units = "cm", type = "cairo") 
 plot(out)
 dev.off() 
-```
 
-    ## quartz_off_screen 
-    ##                 2
-
-``` r
 cairo_pdf("stard_diagram.pdf", width = 10, 
     height = 7) 
 plot(out)
@@ -187,7 +182,7 @@ necessarily work with custom formatting yet (e.g., font size or colour).
 plot(out, grViz = TRUE)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 Or save this `Graphviz` plot to `png` or `pdf`
 
