@@ -1,0 +1,29 @@
+Package: stard
+Type: Package
+Title: Create STARD Diagrams
+Version: 0.0.1
+Authors@R: person("Chiara", "Herzog",
+                  email = "chiara.herzog@uibk.ac.at",
+                  role = c("aut", "cre"),
+                  comment = c(ORCID = "0000-0002-1572-498X"))
+Description: To make it easy to create STARD diagrams for the transparent reporting of diagnostic accuracy studies. Built on Alim Dayim's consort package. 
+URL: https://github.com/chiaraherzog/stard
+BugReports: https://github.com/chiaraherzog/stard/issues
+Encoding: UTF-8
+Imports:
+    grid
+Suggests: 
+    testthat (>= 3.0.0),
+    knitr,
+    dplyr,
+    plyr,
+    DiagrammeR,
+    rmarkdown,
+    covr,
+    stringi
+VignetteBuilder: knitr
+RoxygenNote: 7.2.3
+License: MIT + file LICENSE
+Depends: 
+    R (>= 2.10)
+LazyData: true
