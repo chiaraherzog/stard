@@ -87,7 +87,7 @@ box_data.frame <- function(x, label = NULL){
     stop("only two columns are supported")
 
   if(!is.null(label))
-    label <- sprintf("%s (n=%s)", label, pret_num(sum(!is.na(x[[1]]))))
+    label <- sprintf(paste0("%s (n=%s)", label, pret_num(sum(!is.na(x[[1]])))))
 
   r <- sapply(na.omit(unique(x[[1]])), function(i){
     box_label(x[[2]][x[[1]] == i], label = i, bullet = TRUE)
@@ -149,5 +149,5 @@ box_label <- function(x, label, bullet = TRUE) {
 # Format numbers
 #' @keywords internal
 pret_num <- function(x){
-  prettyNum(x, big.mark = ",", preserve.width = "none", scientific = FALSE)
+  prettyNum(x, big.mark = ",", preserve.width = "none", scientific = FALSE,)
 }
